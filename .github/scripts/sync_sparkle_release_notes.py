@@ -4,6 +4,7 @@ import os
 import re
 import sys
 import textwrap
+import urllib.error
 import urllib.parse
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -92,8 +93,21 @@ def translate_html(rendered_html, target, api_key):
         data=json.dumps({"q": rendered_html, "source": "en", "target": target, "format": "html"}).encode("utf-8"),
         headers={"Content-Type": "application/json", "x-goog-api-key": api_key},
     )
-    with urllib.request.urlopen(request, timeout=30) as response:
-        result = json.load(response)
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            result = json.load(response)
+    except urllib.error.HTTPError as error:
+        try:
+            body = json.load(error)
+        except (ValueError, UnicodeError):
+            body = {}
+        details = body.get("error", {})
+        codes = [details.get("status")]
+        codes.extend(item.get("reason") for item in details.get("details", []))
+        codes.extend(item.get("reason") for item in details.get("errors", []))
+        safe_codes = [code for code in dict.fromkeys(codes) if isinstance(code, str) and re.fullmatch(r"[A-Za-z_]{1,64}", code)]
+        suffix = f" ({', '.join(safe_codes)})" if safe_codes else ""
+        raise RuntimeError(f"Cloud Translation returned HTTP {error.code}{suffix}") from None
     translated = result["data"]["translations"][0]["translatedText"].strip()
     if not translated:
         raise ValueError(f"Empty Cloud Translation result for {target}")
