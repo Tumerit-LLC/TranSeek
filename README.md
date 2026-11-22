@@ -1,6 +1,6 @@
 # TranSeek
 
-TranSeek is a macOS 15 or later app for navigating on-screen text and controls with your keyboard. Its optional browser extension connects to the Mac app to identify interactive webpage controls.
+TranSeek is a Apple silicon Macs running macOS 15 or later app for navigating on-screen text and controls with your keyboard. Its optional browser extension connects to the Mac app to identify interactive webpage controls.
 
 - [TranSeek website](https://transeekmac.com/)
 - [Releases and installer downloads](https://github.com/Tumerit-LLC/TranSeek/releases)
@@ -13,6 +13,8 @@ For a bug report, include your macOS version, TranSeek version, steps to reprodu
 
 ## Release notes localization
 
-Write release notes in English in the GitHub release. Publish the signed Sparkle archive and appcast with a matching enclosure for the release tag. Run **Localize Sparkle release notes** from Actions with that tag to generate a localized appcast artifact. The workflow uses the same Google Cloud Translation API and language set as Tethered. Configure the repository Actions secret `GOOGLE_TRANSLATE_API_KEY` with a key restricted to the Cloud Translation API.
+Write release notes in English. Attach the signed Sparkle ZIP, its matching signed `appcast.xml`, and the installer DMG before publishing the GitHub release. The production app reads the signed feed from `https://transeekmac.com/appcast.xml`.
 
-Download and review the artifact before publishing it to the website. If the feed is signed, sign the final localized bytes before deploying them. The workflow leaves publication and signing to the release operator.
+Publishing or editing a release runs **Localize Sparkle release notes**. You can also dispatch it manually for a tag. The workflow uses the same Google Cloud Translation API and language set as Tethered. Configure the repository Actions secret `GOOGLE_TRANSLATE_API_KEY` with a key restricted to the Cloud Translation API.
+
+Download and review the localized appcast artifact. On the release Mac, run `sign_update --account com.Tumerit.Transeek appcast.xml` and verify it with `sign_update --account com.Tumerit.Transeek --verify appcast.xml`. Then publish the signed file to the website. The Sparkle private key stays in the release Mac’s Keychain.

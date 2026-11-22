@@ -1,10 +1,12 @@
 name: Localize Sparkle release notes
 
 on:
+  release:
+    types: [published, edited]
   workflow_dispatch:
     inputs:
       tag:
-        description: Published release tag already in the TranSeek appcast
+        description: Published release tag with an appcast.xml asset
         required: true
         type: string
 
@@ -16,13 +18,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch TranSeek appcast
-        run: curl --fail --silent --show-error --location https://transeekmac.com/appcast.xml --output appcast.xml
+      - name: Fetch the release appcast
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+        run: gh release download --repo "$GITHUB_REPOSITORY" --pattern appcast.xml -- "$RELEASE_TAG"
       - name: Translate release notes
         env:
           GH_TOKEN: ${{ github.token }}
           GOOGLE_TRANSLATE_API_KEY: ${{ secrets.GOOGLE_TRANSLATE_API_KEY }}
-          RELEASE_TAG: ${{ inputs.tag }}
+          RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
         run: python3 .github/scripts/sync_sparkle_release_notes.py "$RELEASE_TAG"
       - uses: actions/upload-artifact@v4
         with:

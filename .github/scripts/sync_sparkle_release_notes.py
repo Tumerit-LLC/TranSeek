@@ -103,7 +103,7 @@ def translate_html(rendered_html, target, api_key):
 def update_appcast(source, tag, rendered_html, api_key=None, translator=translate_html):
     root = ET.fromstring(source)
     parsed_items = root.findall("./channel/item")
-    item_matches = list(re.finditer(r"(?ms)^    <item>.*?^    </item>", source))
+    item_matches = list(re.finditer(r"(?ms)^[ \t]*<item>.*?^[ \t]*</item>", source))
     if len(parsed_items) != len(item_matches):
         raise ValueError("Cannot safely locate every appcast item")
 
@@ -137,24 +137,25 @@ def update_appcast(source, tag, rendered_html, api_key=None, translator=translat
         for language in missing:
             notes[language] = translator(rendered_html, LANGUAGES[language], api_key)
 
+    indent = re.search(r"(?m)^([ \t]*)<enclosure\b", old_item).group(1)
     description = ""
     for language in ("en", *LANGUAGES):
         if language not in notes:
             continue
         escaped_html = notes[language].replace("]]>", "]]]]><![CDATA[>")
-        indented_html = "\n".join("        " + line for line in escaped_html.splitlines())
-        description += f'      <description xml:lang="{language}"><![CDATA[\n{indented_html}\n      ]]></description>\n'
+        indented_html = "\n".join(indent + "  " + line for line in escaped_html.splitlines())
+        description += f'{indent}<description xml:lang="{language}"><![CDATA[\n{indented_html}\n{indent}]]></description>\n'
 
     new_item, count = re.subn(
-        r"(?s)(?:      <description\b[^>]*>.*?</description>\n)+",
+        r"(?ms)(?:^[ \t]*<description\b[^>]*>.*?</description>\n)+",
         lambda _: description,
         old_item,
         count=1,
     )
     if count == 0 and description:
         new_item, count = re.subn(
-            r"(?m)^      <enclosure ",
-            lambda _: description + "      <enclosure ",
+            r"(?m)^[ \t]*<enclosure\b",
+            lambda match: description + match.group(),
             old_item,
             count=1,
         )
@@ -163,7 +164,7 @@ def update_appcast(source, tag, rendered_html, api_key=None, translator=translat
 
     updated = source[: match.start()] + new_item + source[match.end() :]
     ET.fromstring(updated)
-    return updated
+    return re.sub(r"(?s)<!-- sparkle-signatures:.*?-->\s*\Z", "", updated)
 
 
 def main():
