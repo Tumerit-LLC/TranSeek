@@ -3,9 +3,7 @@
   <img src="Assets/TranSeek-Banner.png" alt="TranSeek wordmark beside the app icon">
 </picture>
 
-# TranSeek
-
-TranSeek is a macOS app for navigating on-screen text and controls with your keyboard. Press Caps Lock to start, then search for a word, type a hint to activate a control, or choose a pane to scroll.
+**TranSeek is a macOS app for navigating on-screen text and controls with your keyboard. Press Caps Lock to start, then search for a word, type a hint to activate a control, or choose a pane to scroll.**
 
 **Requires an Apple silicon Mac running macOS 15 or later.**
 
