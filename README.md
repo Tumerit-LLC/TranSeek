@@ -1,4 +1,4 @@
-<img src="Assets/TranSeek-App-Icon.png" width="128" height="128" alt="TranSeek app icon">
+![TranSeek wordmark beside the app icon](Assets/TranSeek-Banner.png)
 
 # TranSeek
 
