@@ -1,4 +1,7 @@
-![TranSeek wordmark beside the app icon](Assets/TranSeek-Banner.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="Assets/TranSeek-Banner-Dark.png">
+  <img src="Assets/TranSeek-Banner.png" alt="TranSeek wordmark beside the app icon">
+</picture>
 
 # TranSeek
 
