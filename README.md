@@ -22,11 +22,11 @@
 
 | Search | Alphabet |
 | --- | --- |
-| ![Search mode highlights matches for typed text](Screenshots/screenshot-mode-search.jpg) | ![Alphabet mode groups recognized words by initial letter](Screenshots/screenshot-mode-alphabet.jpg) |
+| ![Search mode highlights matches for typed text](Screenshots/search-mode.png) | ![Alphabet mode groups recognized words by initial letter](Screenshots/alphabet-mode.png) |
 
 | Elements | Scroll |
 | --- | --- |
-| ![Elements mode places keyboard hints over interactive controls](Screenshots/screenshot-mode-elements.jpg) | ![Scroll mode numbers the scrollable areas on screen](Screenshots/screenshot-mode-scroll.jpg) |
+| ![Elements mode places keyboard hints over interactive controls](Screenshots/elements-mode.png) | ![Scroll mode numbers the scrollable areas on screen](Screenshots/scroll-mode.png) |
 
 ## Get TranSeek
 
