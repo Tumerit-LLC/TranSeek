@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: Published release tag with an appcast.xml asset
+        description: Published release tag with a signed Sparkle ZIP and signature sidecar
         required: true
         type: string
 
@@ -15,14 +15,14 @@ permissions:
 
 jobs:
   localize:
-    runs-on: ubuntu-latest
+    runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Fetch the release appcast
+      - name: Verify the release archive and prepare the appcast
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
-        run: gh release download --repo "$GITHUB_REPOSITORY" --pattern appcast.xml -- "$RELEASE_TAG"
+        run: python3 .github/scripts/prepare_sparkle_appcast.py "$RELEASE_TAG"
       - name: Translate release notes
         env:
           GH_TOKEN: ${{ github.token }}
