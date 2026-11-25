@@ -106,8 +106,7 @@ def prepare(tag, repository, token):
         if architectures != ["arm64"]:
             raise ValueError("Expected an arm64 TranSeek executable")
 
-    with urllib.request.urlopen(FEED_URL, timeout=60) as response:
-        source = response.read().decode("utf-8")
+    source = APPCAST.read_text(encoding="utf-8")
     updated = update_feed(source, release, archive_asset, info, signature)
     APPCAST.write_text(updated, encoding="utf-8")
 
@@ -137,7 +136,7 @@ def update_feed(source, release, archive_asset, info, signature):
     published = datetime.fromisoformat(release["published_at"].replace("Z", "+00:00"))
     channel = root.find("channel")
     if channel is None:
-        raise ValueError("Expected an RSS channel in the live feed")
+        raise ValueError("Expected an RSS channel in the checked-in appcast")
     minimum = info.get("LSMinimumSystemVersion")
     if not isinstance(minimum, str) or not re.fullmatch(r"[0-9]+(?:\.[0-9]+){1,2}", minimum):
         raise ValueError("Expected LSMinimumSystemVersion in the Sparkle ZIP")
@@ -165,7 +164,7 @@ def update_feed(source, release, archive_asset, info, signature):
     elif not items and channel_end:
         position, indent = channel_end.start(), channel_end[1] + "    "
     else:
-        raise ValueError("Cannot locate the insertion point in the live feed")
+        raise ValueError("Cannot locate the insertion point in the checked-in appcast")
     updated = source[:position] + "".join(indent + line + "\n" for line in entry.splitlines()) + source[position:]
     ET.fromstring(updated)
     return updated

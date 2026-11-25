@@ -1,0 +1,61 @@
+<?xml version="1.0" standalone="yes"?><!-- sparkle-sign-warning:
+IMPORTANT: This file was signed by Sparkle. Any modifications to this file requires re-signing this file with generate_appcast or sign_update! The signed signature will be embedded at the end of this file.
+--><rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>×2 👆 TranSeek</title>
+        <item>
+            <title>1.0.0</title>
+            <pubDate>Sun, 22 Nov 2026 11:45:29 -0800</pubDate>
+            <sparkle:version>10000</sparkle:version>
+            <sparkle:shortVersionString>1.0.0</sparkle:shortVersionString>
+            <sparkle:minimumSystemVersion>15.0</sparkle:minimumSystemVersion>
+            <sparkle:hardwareRequirements>arm64</sparkle:hardwareRequirements>
+            <description xml:lang="en"><![CDATA[
+              <h2 dir="auto">Keyboard navigation for macOS</h2>
+              <ul dir="auto">
+              <li>Find on-screen text and accessible controls and activate them with the keyboard.</li>
+              <li>Configure Search, Alphabet, Elements, and Scroll modes.</li>
+              <li>Use the optional Chrome extension for webpage control detection.</li>
+              </ul>
+              <p dir="auto">Requires an Apple silicon Mac running macOS 15 or later.</p>
+            ]]></description>
+            <description xml:lang="ar"><![CDATA[
+              <h2 style=";text-align:right;direction:rtl">التنقل باستخدام لوحة المفاتيح لنظام macOS</h2><ul style=";text-align:right;direction:rtl"><li style=";text-align:right;direction:rtl"> ابحث عن النصوص المعروضة على الشاشة وعناصر التحكم التي يمكن الوصول إليها وقم بتفعيلها باستخدام لوحة المفاتيح.</li><li style=";text-align:right;direction:rtl"> قم بضبط أوضاع البحث، والأبجدية، والعناصر، والتمرير.</li><li style=";text-align:right;direction:rtl"> استخدم إضافة Chrome الاختيارية للكشف عن عناصر التحكم في صفحات الويب.</li></ul><p style=";text-align:right;direction:rtl"> يتطلب جهاز ماك بمعالج Apple Silicon يعمل بنظام macOS 15 أو أحدث.</p>
+            ]]></description>
+            <description xml:lang="de"><![CDATA[
+              <h2 dir="auto">Tastaturnavigation für macOS</h2><ul dir="auto"><li> Suchen Sie nach Text auf dem Bildschirm und barrierefreien Steuerelementen und aktivieren Sie diese mit der Tastatur.</li><li> Konfigurieren Sie die Modi „Suche“, „Alphabet“, „Elemente“ und „Scroll“.</li><li> Verwenden Sie die optionale Chrome-Erweiterung zur Erkennung von Webseitensteuerelementen.</li></ul><p dir="auto"> Erfordert einen Apple Silicon Mac mit macOS 15 oder neuer.</p>
+            ]]></description>
+            <description xml:lang="es"><![CDATA[
+              <h2 dir="auto">Navegación mediante teclado para macOS</h2><ul dir="auto"><li> Localiza el texto en pantalla y los controles accesibles, y actívalos con el teclado.</li><li> Configure los modos de búsqueda, alfabeto, elementos y desplazamiento.</li><li> Utilice la extensión opcional de Chrome para la detección de controles de página web.</li></ul><p dir="auto"> Requiere un Mac con procesador Apple Silicon y macOS 15 o posterior.</p>
+            ]]></description>
+            <description xml:lang="fr"><![CDATA[
+              <h2 dir="auto">Navigation au clavier pour macOS</h2><ul dir="auto"><li> Repérez le texte à l&#39;écran et les commandes accessibles, puis activez-les à l&#39;aide du clavier.</li><li> Configurez les modes de recherche, d&#39;alphabet, d&#39;éléments et de défilement.</li><li> Utilisez l&#39;extension Chrome optionnelle pour la détection des contrôles de page Web.</li></ul><p dir="auto"> Nécessite un Mac équipé d&#39;une puce Apple Silicon et exécutant macOS 15 ou une version ultérieure.</p>
+            ]]></description>
+            <description xml:lang="it"><![CDATA[
+              <h2 dir="auto">Navigazione da tastiera per macOS</h2><ul dir="auto"><li> Individua il testo visualizzato sullo schermo e i comandi accessibili e attivali tramite la tastiera.</li><li> Configura le modalità di ricerca, alfabetica, elementi e scorrimento.</li><li> Utilizza l&#39;estensione facoltativa di Chrome per il rilevamento dei controlli della pagina web.</li></ul><p dir="auto"> Richiede un Mac con processore Apple Silicon e sistema operativo macOS 15 o versioni successive.</p>
+            ]]></description>
+            <description xml:lang="ja"><![CDATA[
+              <h2 dir="auto">macOS のキーボードナビゲーション</h2><ul dir="auto"><li>画面上のテキストやアクセシビリティ対応の操作ボタンを探し、キーボードを使って操作してください。</li><li>検索、アルファベット順、要素順、スクロールモードを設定します。</li><li>ウェブページの制御検出には、オプションのChrome拡張機能を使用してください。</li></ul><p dir="auto"> Appleシリコン搭載のMac（macOS 15以降が動作）が必要です。</p>
+            ]]></description>
+            <description xml:lang="ko"><![CDATA[
+              <h2 dir="auto">macOS용 키보드 탐색</h2><ul dir="auto"><li> 화면에 표시되는 텍스트와 접근성 제어 기능을 찾아 키보드를 사용하여 활성화하세요.</li><li> 검색, 알파벳순, 요소별, 스크롤 모드를 구성합니다.</li><li> 웹페이지 컨트롤 감지를 위해 선택적으로 Chrome 확장 프로그램을 사용하세요.</li></ul><p dir="auto"> macOS 15 이상이 설치된 Apple Silicon Mac이 필요합니다.</p>
+            ]]></description>
+            <description xml:lang="pt-BR"><![CDATA[
+              <h2 dir="auto">Navegação por teclado para macOS</h2><ul dir="auto"><li> Localize o texto na tela e os controles acessíveis e ative-os com o teclado.</li><li> Configure os modos de pesquisa, alfabético, elementos e rolagem.</li><li> Utilize a extensão opcional do Chrome para detecção de controles de páginas web.</li></ul><p dir="auto"> Requer um Mac com processador Apple Silicon executando o macOS 15 ou posterior.</p>
+            ]]></description>
+            <description xml:lang="ru"><![CDATA[
+              <h2 dir="auto">Навигация с помощью клавиатуры для macOS</h2><ul dir="auto"><li> Находите текст на экране и доступные элементы управления и активируйте их с помощью клавиатуры.</li><li> Настройте режимы поиска, алфавита, элементов и прокрутки.</li><li> Для определения элементов управления веб-страницы используйте дополнительное расширение Chrome.</li></ul><p dir="auto"> Требуется компьютер Mac с процессором Apple Silicon и операционной системой macOS 15 или более поздней версии.</p>
+            ]]></description>
+            <description xml:lang="uk"><![CDATA[
+              <h2 dir="auto">Навігація клавіатурою для macOS</h2><ul dir="auto"><li> Знайдіть текст на екрані та доступні елементи керування й активуйте їх за допомогою клавіатури.</li><li> Налаштуйте режими пошуку, алфавіту, елементів та прокручування.</li><li> Використовуйте додаткове розширення Chrome для виявлення елементів керування веб-сторінками.</li></ul><p dir="auto"> Потрібен кремнієвий комп&#39;ютер Apple Mac з macOS 15 або пізнішої версії.</p>
+            ]]></description>
+            <description xml:lang="zh-Hans"><![CDATA[
+              <h2 dir="auto">macOS 键盘导航</h2><ul dir="auto"><li>找到屏幕上的文字和辅助控件，并用键盘激活它们。</li><li>配置搜索模式、字母模式、元素模式和滚动模式。</li><li>使用可选的 Chrome 扩展程序进行网页控件检测。</li></ul><p dir="auto">需要搭载苹果芯片并运行 macOS 15 或更高版本的 Mac 电脑。</p>
+            ]]></description>
+            <enclosure url="https://github.com/Tumerit-LLC/TranSeek/releases/download/v1.0.0/TranSeek-1.0.0-10000.Sparkle.zip" length="16234886" type="application/octet-stream" sparkle:edSignature="3/8hL/tnQHDrEEt4RrQm1KqSZ2CmmtqUUyxxPrRONR5dHJfrFswJanYsPY+Fmj++LrOuih2VLMaKuDt+pXKMAQ=="></enclosure>
+        </item>
+    </channel>
+</rss><!-- sparkle-signatures:
+edSignature: zzWRFRi4VPYocnEsibqaTEN4uat1wkzMoVrlZpKlt+Jhl0uhKAF+1CzLf8YjHNTdQGc4+49ArFH+2/ucPx2DDg==
+length: 8869
+-->
