@@ -9,6 +9,10 @@ on:
         description: Published release tag with a signed Sparkle ZIP and signature sidecar
         required: true
         type: string
+      resync_archive:
+        description: Resync a verified replacement ZIP for the same build and URL
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -24,6 +28,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           RELEASE_TAG: ${{ github.event.release.tag_name || inputs.tag }}
+          RESYNC_ARCHIVE: ${{ inputs.resync_archive }}
         run: python3 .github/scripts/prepare_sparkle_appcast.py "$RELEASE_TAG"
       - name: Translate release notes
         env:

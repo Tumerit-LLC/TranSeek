@@ -56,7 +56,7 @@ def bundle_info(archive):
         return plistlib.loads(zipped.read(matches[0]))
 
 
-def prepare(tag, repository, token):
+def prepare(tag, repository, token, resync_archive=False):
     if not re.fullmatch(r"v[0-9]+\.[0-9]+\.[0-9]+", tag):
         raise ValueError("Expected a semantic release tag such as v0.9.3")
     encoded_tag = urllib.parse.quote(tag, safe="")
@@ -107,11 +107,11 @@ def prepare(tag, repository, token):
             raise ValueError("Expected an arm64 TranSeek executable")
 
     source = APPCAST.read_text(encoding="utf-8")
-    updated = update_feed(source, release, archive_asset, info, signature)
+    updated = update_feed(source, release, archive_asset, info, signature, resync_archive)
     APPCAST.write_text(updated, encoding="utf-8")
 
 
-def update_feed(source, release, archive_asset, info, signature):
+def update_feed(source, release, archive_asset, info, signature, resync_archive=False):
     tag = release["tag_name"]
     build = str(info["CFBundleVersion"])
     root = ET.fromstring(source)
@@ -126,9 +126,23 @@ def update_feed(source, release, archive_asset, info, signature):
             raise ValueError("Multiple appcast items match the release tag")
         item = matching[0]
         enclosure = item.find("enclosure")
-        if item.findtext(SPARKLE + "version") != build or enclosure.get(SPARKLE + "edSignature") != signature or enclosure.get("length") != str(archive_asset["size"]) or enclosure.get("url") != archive_asset["browser_download_url"]:
+        if item.findtext(SPARKLE + "version") != build or enclosure.get("url") != archive_asset["browser_download_url"]:
+            raise ValueError("Existing appcast item does not match the release build or URL")
+        if enclosure.get(SPARKLE + "edSignature") == signature and enclosure.get("length") == str(archive_asset["size"]):
+            return source
+        if not resync_archive or item.findtext(SPARKLE + "minimumSystemVersion") != info.get("LSMinimumSystemVersion"):
             raise ValueError("Existing appcast item does not match the release archive")
-        return source
+        url = archive_asset["browser_download_url"]
+        enclosures = list(re.finditer(r"<enclosure\b[^>]*>", source))
+        matches = [match for match in enclosures if f'url="{url}"' in match.group()]
+        if len(matches) != 1:
+            raise ValueError("Cannot locate the existing enclosure in the checked-in appcast")
+        match = matches[0]
+        entry = re.sub(r'sparkle:edSignature="[^"]+"', f'sparkle:edSignature="{signature}"', match.group())
+        entry = re.sub(r'\blength="[0-9]+"', f'length="{archive_asset["size"]}"', entry)
+        updated = source[:match.start()] + entry + source[match.end():]
+        ET.fromstring(updated)
+        return updated
 
     existing_builds = [int(item.findtext(SPARKLE + "version")) for item in items]
     if existing_builds and int(build) <= max(existing_builds):
@@ -171,4 +185,4 @@ def update_feed(source, release, archive_asset, info, signature):
 
 
 if __name__ == "__main__":
-    prepare(sys.argv[1], os.environ["GITHUB_REPOSITORY"], os.environ["GH_TOKEN"])
+    prepare(sys.argv[1], os.environ["GITHUB_REPOSITORY"], os.environ["GH_TOKEN"], os.environ.get("RESYNC_ARCHIVE") == "true")
