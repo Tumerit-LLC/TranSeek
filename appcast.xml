@@ -74,7 +74,7 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
             <description xml:lang="zh-Hans"><![CDATA[
               <h1 dir="auto">TranSeek v1.0.3</h1><h1 dir="auto"> TranSeek 的新特性</h1><h3 dir="auto">全局快捷键</h3><ul dir="auto"><li>即使 TranSeek 覆盖层关闭，也可以为<strong>鼠标左键单击</strong>、<strong>右键单击</strong>和<strong>Command 键单击</strong>指针分配系统范围的快捷键。</li><li>使用更一致的界面和更清晰的按键标签（例如回车键和小键盘回车键）来录制快捷键。</li><li>在快捷键中，只使用<strong>Shift 键</strong>作为修饰键，例如<strong>Shift-Return</strong> 。</li></ul><h3 dir="auto">导航和模式设置</h3><ul dir="auto"><li>为某个模式设置<strong>链式选择修饰符</strong>。按住该修饰符进行选择，即可立即重新打开同一模式并继续导航。</li><li>关闭<strong>“连续 Tab 键循环”功能</strong>，即可在返回起始位置时关闭叠加层。 <strong>“Tab 键顺序”</strong>现在会显示如何重新排列模式，并且<strong>Shift+Tab 键</strong>可以正确地向后循环。</li><li>现在，字母模式和翻译模式下都会启用非活动超时机制。按住修饰键或<strong>“全部翻译”</strong>加载时，计时器会暂停。</li></ul><h3 dir="auto">浏览器集成和文本识别</h3><ul dir="auto"><li>启用<strong>浏览器语言检测</strong>后，TranSeek 会优先识别页面报告的受支持语言，以进行屏幕文本识别。</li><li>搜索首先对支持的语言进行快速文本识别，如果第一次识别失败，则尝试进行更准确的识别。</li><li>当 macOS 暂时无法识别前台应用程序时，TranSeek 改进了扫描目标定位。此外，它还会将自身的叠加层从扫描中排除。</li><li>简化了浏览器集成中的<strong>Safari 设置</strong>操作。</li></ul><h3 dir="auto">安装程序和激活程序</h3><ul dir="auto"><li>TranSeek启动前，磁盘映像会弹出。启动后，TranSeek可以提供清理已下载安装程序的选项。</li><li>在您结账或登录后从浏览器返回时，添加了更清晰的状态消息。</li><li>如果离线验证失败，TranSeek 可以在线重新激活，并在您需要恢复购买时提供本地化指导。</li></ul><h3 dir="auto">安装</h3><p dir="auto">需要一台<strong>运行 macOS 15 或更高版本的 Apple 芯片 Mac</strong> 。启用<strong>辅助功能</strong>以进行键盘和控件导航，并<strong>启用屏幕录制</strong>以使用可识别屏幕文本的模式。</p>
             ]]></description>
-            <enclosure url="https://github.com/Tumerit-LLC/TranSeek/releases/download/v1.0.3/TranSeek-1.0.3-10003.Sparkle.zip" length="14414628" type="application/octet-stream" sparkle:edSignature="4yApgPrJ3nIDC9c+DQ2wSUU1GpOv6Ij9iRzdz7gMRxCLHbq6GpVzy1Z6xjxB36FF9RmcYlARFCfjTXv1OWcuDw==" />
+            <enclosure url="https://github.com/Tumerit-LLC/TranSeek/releases/download/v1.0.3/TranSeek-1.0.3-10003.Sparkle.zip" length="14416413" type="application/octet-stream" sparkle:edSignature="Nyooo7g3ydLHuA4zGA3DWgdwrloN/PP+4hHSZ+43syWOnwFQAHN4OQmIuSKC+HlIWSSswudKtKnwkJh/KFtOCw==" />
         </item>
         <item>
             <title>1.0.0</title>
@@ -129,6 +129,6 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: qtLgjvZilAhhBOTCwYxkOdTitoAW2vWu7Q6rT3vciT6LVQpEjpV3eDFIktJDUd0cosuTuA/wK3ZMwxB0+GYbCA==
+edSignature: OiXOxxOW1e4kd1jHjZDFMl6tFya6zhu8Ipw8G6BCCS38/ewytU12n78LzZttsmn8XgD+Q9+2TR2zz24q7G52CQ==
 length: 53854
 -->
